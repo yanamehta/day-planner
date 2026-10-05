@@ -1,0 +1,57 @@
+[project]
+name = "day-planner"
+version = "0.1.0"
+description = "A full-stack Jac application"
+default-app = "web"
+jac-version = "==0.37.21"
+
+[apps]
+
+[apps.web]
+kind = "web-app"
+entry-point = "main"
+
+[apps.cli]
+kind = "cli"
+entry-point = "cli.app"
+
+[apps.cli.check]
+[apps.cli.check.lint]
+ignore = ["no-print"]
+
+[apps.mobile]
+kind = "mobile"
+entry-point = "mobile.main"
+
+[dependencies]
+"byllm[local]" = ">=0.0.0"
+feedparser = "~=6.0"
+beautifulsoup4 = "~=4.15"
+[dependencies.npm]
+react = "^19.2.0"
+react-dom = "^19.2.0"
+react-router-dom = "^6.22.0"
+react-error-boundary = "^5.0.0"
+"@tanstack/react-form" = "^1.33.0"
+zod = "^4.3.6"
+react-native-web = "latest"
+
+[dependencies.npm.dev]
+vite = "^6.4.1"
+"@vitejs/plugin-react" = "^4.7.0"
+typescript = "^5.3.3"
+"@types/react" = "^19.2.0"
+"@types/react-dom" = "^19.2.0"
+
+
+
+[dev-dependencies]
+watchdog = ">=3.0.0"
+
+[client]
+
+[client.api]
+base_url = "${DAY_PLANNER_API_URL:-}"
+
+[byllm.model]
+default_model = "local:gemma-4-e4b"
